@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative 'lib/word_list'
+
+url = WordList.new(ARGV[0]).to_url
+puts url
+IO.popen('pbcopy', 'r+') { |clipboard| clipboard.puts url }
